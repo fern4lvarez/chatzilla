@@ -1,9 +1,9 @@
 # Realtime chat with Flask and cloudControl
 
 
-This is a step by step tutorial on building a basic real time chat application using [Flask](http://flask.pocoo.org/), [socket.io](http://socket.io/) and [gevent-socketio](https://github.com/abourget/gevent-socketio). All the code is available [here](https://github.com/callmephilip/chatzilla). You can find live version of the app [here](http://chatzilla.cloudcontrolapp.com).   
+This is a step by step tutorial on building a basic real time chat application using [Flask](http://flask.pocoo.org/), [socket.io](http://socket.io/) and [gevent-socketio](https://github.com/abourget/gevent-socketio). All the code is available [here](https://github.com/fern4lvarez/chatzilla). You can find live version of the app [here](http://chatzilla.cloudcontrolapp.com).   
 
-[![Chatzilla screen](https://dl.dropboxusercontent.com/u/9224326/www/chatzilla.screen.png)](http://chatzilla.cloudcontrolapp.com)
+[![Chatzilla screen](http://i.imgur.com/C7GAoEP.png)](http://chatzilla.cloudcontrolapp.com)
 
    
 ## Chapter 1: Getting started 
