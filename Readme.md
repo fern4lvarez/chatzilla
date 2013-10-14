@@ -1,57 +1,28 @@
 # Realtime chat with Flask and Heroku 
 
 
-This is a step by step tutorial on building a basic real time chat application using [Flask](http://flask.pocoo.org/), [socket.io](http://socket.io/) and [gevent-socketio](https://github.com/abourget/gevent-socketio). All the code is available [here](https://github.com/callmephilip/chatzilla). You can find live version of the app [here](http://chatzilla.herokuapp.com).   
+This is a step by step tutorial on building a basic real time chat application using [Flask](http://flask.pocoo.org/), [socket.io](http://socket.io/) and [gevent-socketio](https://github.com/abourget/gevent-socketio). All the code is available [here](https://github.com/callmephilip/chatzilla). You can find live version of the app [here](http://chatzilla.cloudcontrolapp.com).   
 
-[![Chatzilla screen](https://dl.dropboxusercontent.com/u/9224326/www/chatzilla.screen.png)](http://chatzilla.herokuapp.com)
+[![Chatzilla screen](https://dl.dropboxusercontent.com/u/9224326/www/chatzilla.screen.png)](http://chatzilla.cloudcontrolapp.com)
 
-> As of Oct 8 2013, Heroku rolled out Public Beta of Websockets. The official announcement can be found [here](https://blog.heroku.com/archives/2013/10/8/websockets-public-beta). 
-
-If you don't enable Websocket functionality on Heroku, Socket.io will fallback to XHR polling.
-
-To enable websockets on your Heroku app, use the following command
-
-```
-heroku labs:enable websockets -a YOUR-APP-NAME
-``` 
    
 ## Chapter 1: Getting started 
 
-I assume you know what Heroku is and you've seen Python before. Prior knowledge of Flask is a plus but given how minimalistic it is, you can just tag along.  
+I assume you know what cloudControl is and you've seen Python before. Prior knowledge of Flask is a plus but given how minimalistic it is, you can just tag along.  
 
 
-### Heroku up
+### cloudControl up
 
-First things first, let's create a shiny new appication on Heroku
+First things first, let's create a shiny new appication on cloudControl
 
 ```
-heroku apps:create YOUR_APPLICATION_NAME
+cctrlapp YOUR_APPLICATION_NAME create python
 ```
 
 I called my app 'chatzilla' and got the following output
 
 ```
-Creating chatzilla... done, stack is cedar
-http://chatzilla.herokuapp.com/ | git@heroku.com:chatzilla.git
-``` 
-
-The git part is important, let's put it to good use. Let's setup a git repository and point it towards heroku 
-
-```
-git init
-git remote add heroku git@heroku.com:<YOUR_APP_NAME>.git
-```
-
-We now have an empty git repository with a remote aliased 'heroku' pointing to the Heroku git for the project. The game is afoot. 
-
-> As of Oct 8 2013, Heroku rolled out Public Beta of Websockets. The official announcement can be found [here](https://blog.heroku.com/archives/2013/10/8/websockets-public-beta). 
-
-If you don't enable Websocket functionality on Heroku, Socket.io will fallback to XHR polling.
-
-To enable websockets on your Heroku app, use the following command
-
-```
-heroku labs:enable websockets -a YOUR-APP-NAME
+Git configuration found! Using "Git" as repository type.
 ``` 
 
 ### Setup basic Flask app
@@ -153,9 +124,9 @@ if __name__ == '__main__':
     	resource="socket.io").serve_forever()
 ```
 
-### Procfile : Flask meets Heroku 
+### Procfile : Flask meets cloudControl
 
-Before a much deserved refreshing beverage, let's tell Heroku how to run our application using Procfile
+Before a much deserved refreshing beverage, let's tell cloudControl how to run our application using Procfile
 
 ```
 touch Procfile
@@ -171,27 +142,14 @@ This is basically us saying: could we have a web instance running gunicorn with 
 
 ### But will it blend?
 
-Let's see if this works
-
-```
-foreman start
-```
-
-This should launch a local dev server on your machine. If you head to http://localhost:5000/, you should be able to witness Chatzilla in all its glory.
-
-Let's go global now 
-
 ```
 git add .
 git commit -a -m "setup basic Flask app"
-git push heroku master
+cctrlapp YOUR_APPLICATION_NAME/default push
+cctrlapp YOUR_APPLICATION_NAME/default deploy
 ``` 
 
-This should keep Heroku busy for a few moments. Once it's done processing the push, we can take a look at Chatzilla in the wild
-
-```
-heroku open
-```
+This should keep cloudControl busy for a few moments. Once it's done processing the push and deploy, we can take a look at Chatzilla in the wild visiting `YOUR_APPLICATION_NAME.cloudcontrolapp.com`.
 
 ### Before you panic
 
@@ -307,8 +265,6 @@ Don't forget imports
 ```python
 from flask import Flask, Response, render_template
 ```
-
-Once you run ```foreman start``` you should see a shiny new Chatzilla interface. Epic.
 
 #### Wire the socket
 
@@ -949,10 +905,11 @@ $(".compose-message-form").validate({
 		});
 ```
 
-Commit what you have. And push what you have to heroku.
+Commit what you have. And push what you have to cloudControl.
 
 ```
-git push heroku master
+cctrlapp YOUR_APPLICATION_NAME/default push
+cctrlapp YOUR_APPLICATION_NAME/default deploy
 ```
 
 ### Before you panic
@@ -962,7 +919,7 @@ All the code for chapter 3 is [here](https://github.com/callmephilip/chatzilla/r
 
 ## Chapter 4: More UI
 
-The final version of the app is available [here](http://chatzilla.herokuapp.com/). You'll notice it's quite different from where we left in Chapter 3. All the code is available [here](https://github.com/callmephilip/chatzilla).
+The final version of the app is available [here](http://chatzilla.cloudcontrolapp.com/). You'll notice it's quite different from where we left in Chapter 3. All the code is available [here](https://github.com/callmephilip/chatzilla).
 
 
 
