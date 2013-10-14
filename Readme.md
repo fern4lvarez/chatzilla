@@ -1,4 +1,4 @@
-# Realtime chat with Flask and Heroku 
+# Realtime chat with Flask and cloudControl
 
 
 This is a step by step tutorial on building a basic real time chat application using [Flask](http://flask.pocoo.org/), [socket.io](http://socket.io/) and [gevent-socketio](https://github.com/abourget/gevent-socketio). All the code is available [here](https://github.com/callmephilip/chatzilla). You can find live version of the app [here](http://chatzilla.cloudcontrolapp.com).   
@@ -919,7 +919,7 @@ All the code for chapter 3 is [here](https://github.com/callmephilip/chatzilla/r
 
 ## Chapter 4: More UI
 
-The final version of the app is available [here](http://chatzilla.cloudcontrolapp.com/). You'll notice it's quite different from where we left in Chapter 3. All the code is available [here](https://github.com/callmephilip/chatzilla).
+The final version of the app is available [here](http://chatzilla.cloudcontrolapp.com/). You'll notice it's quite different from where we left in Chapter 3. All the code is available [here](https://github.com/fern4lvarez/chatzilla).
 
 
 
